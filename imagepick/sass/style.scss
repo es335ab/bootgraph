@@ -1,0 +1,276 @@
+@charset "UTF-8";
+@import "./normalize.scss";
+@import "compass";
+
+/* --------------------------------------------------
+  Skins
+-------------------------------------------------- */
+
+
+/* --------------------------------------------------
+  Mixins
+-------------------------------------------------- */
+
+/* --------------------------------------------------
+ layout style
+-------------------------------------------------- */
+body{
+  font-size:12px;
+  line-height:1.5;
+  margin:0;
+  padding:0;
+  color:#333;
+  background-color:#f7f8f9;
+  font-family: 'Open Sans', sans-serif;
+ }
+
+a,a:hover,a:visited{
+  color: #09c;
+  text-decoration: none;
+}
+
+
+.header{
+  width: 100%;
+  min-width: 920px;
+  height: 39px;
+  border-bottom: 1px solid #eee;
+  background-color:#fff;
+  @include pie-clearfix;
+}
+
+.siteTitle{
+  font-size: 20px;
+  font-weight: normal;
+  color: #09c;
+  margin: 5px 0 0 10px;
+  float: left;
+}
+
+.titleSupple{
+  float:left;
+  margin:12px 0 0 10px;
+}
+
+.social{
+  width:450px;
+  float:right;
+  list-style:none;
+  margin:10px 0 0;
+  padding:0;
+
+  li{
+    float:left;
+    width:100px;
+    margin-right:20px;
+    }
+
+  li.google{
+  margin-left:-20px;
+  }
+  li:last-child{
+    margin-right:0;
+    margin-left:-20px;
+  }
+}
+
+
+.content{
+  margin: 30px auto;
+  position: relative;
+}
+
+.stage{
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 640px;
+  height: 460px;
+  .dragDropArea {
+    background:url(../img/dropimages.png) no-repeat center center;
+    width: 180px;
+    height: 210px;
+    display: block;
+    margin: 125px auto;
+  }
+  .readImageFile {
+    opacity: 0;
+    width: 180px;
+    height: 210px;
+    display: block;
+  }
+}
+
+.imageDisplayArea {
+  margin-left: 30px;
+  position: relative;
+}
+
+.imageDisplayCanvas {
+  cursor: crosshair;
+}
+
+.selectedRange {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(252,238,33,0.5);
+  border: dotted 1px rgba(0,0,0,0.5);
+  width: 0;
+  height: 0;
+}
+
+.maskMeasure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: crosshair;
+}
+
+
+/* --- */
+.infoSecs{
+  width: 200px;
+  position: fixed;
+  top: 60px;
+  //right: 30px;
+  z-index: 3;
+  display: none;
+  padding:15px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 5px;
+  border: 1px solid rgba(0,153,204,0.5);
+  cursor:move;
+}
+
+.infoSec {
+  .hl {
+    margin-top: 5px;
+  }
+}
+
+.adLink{
+  margin-top:10px;
+  font-size:12px !important;
+}
+
+.toggleSwitch{
+  width:199px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  @include pie-clearfix;
+
+  li{
+    width: 99px;
+    height: 30px;
+    font-size:14px;
+    color: #09c;
+    line-height: 2;
+    text-align: center;
+    float: left;
+    border-right: 1px solid #eee;
+    cursor: pointer;
+    }
+
+  li:last-child{
+    border: none;
+  }
+
+  li.current{
+    background-color:#09c;
+    color: #fff;
+    cursor: auto;
+  }
+}
+
+
+.hl{
+  font-size: 14px;
+}
+
+.hlSupple{
+  font-size: 11px;
+  color: #999;
+}
+
+.infoContent{
+  margin-top: 5px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  @include pie-clearfix;
+}
+
+.colorInfoPanel{
+  width: 98px;
+  height: 98px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+  float: left;
+}
+
+.colorInfoHex{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.historyList{
+  li{
+   margin-bottom: 10px;
+   @include pie-clearfix;
+  }
+}
+
+.colorPanel{
+  width: 48px;
+  height: 48px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+  float: left;
+}
+
+.hex{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.gridInfoPanel{
+  width: 48px;
+  height: 48px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fcee21;
+  float: left;
+}
+
+.gridVal{
+  float:left;
+  margin-left:10px;
+}
+
+.val{
+  color: #09c;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.adsenceArea {
+  text-align: center;
+  margin: 10px auto;
+  width: 642px;
+  border-radius: 4px;
+  background-color: #fff;
+  padding-top: 12px;
+}
+
+/* --------------------------------------------------
+  Components
+-------------------------------------------------- */
+.hide {
+  display: none !important;
+}

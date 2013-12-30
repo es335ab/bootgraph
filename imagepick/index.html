@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+  <title>imagePick | 画像のカラーコードやサイズ解析ブラウザツール</title>
+  <!--[if lt IE 9]>
+  <script src="./js/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="./css/style.css?b" media="all">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+  <meta property="og:title" content="imagePick | 画像のカラーコードやサイズ解析ブラウザツール" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="カラーコードとサイズ解析をブラウザ上でもっと簡単に。imagePickなら画像のカラーコードやサイズ解析するためにグラフィックアプリを起動する必要はありません。" />
+  <meta property="og:image" content="img/ogp.png" />
+  <meta property="og:url" content="http://bootgraph.com/imagepick/" />
+  <meta property="og:site_name" content="imagePick" />
+
+</head>
+<body>
+  <header class="header" id="header">
+    <h1 class="siteTitle">imagePick</h1>
+    <p class="titleSupple">画像のカラーコードやサイズ解析ブラウザツール</p>
+    <ul class="social">
+      <li>
+        <div class="fb-like" data-href="http://bootgraph.com/imagepick/" data-send="false" data-layout="button_count" data-width="120" data-show-faces="true" data-font="arial"></div>
+      </li>
+      <li>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bootgraph.com/imagepick/" data-text="imagePick | 画像のカラーコードやサイズ解析ブラウザツール #imagepick #design" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </li>
+      <li class="google"><div class="g-plusone" data-size="medium"></div>
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+      </li>
+      <li class="author"><a href="http://bootgraph.com/">Bootgraph.com</a></li>
+    </ul>
+  </header>
+
+  <div class="content" id="content">
+  <div class="imageDisplayArea">
+    <canvas id="imageDisplayCanvas" class="imageDisplayCanvas" width="0" height="0"></canvas>
+    <div class="maskMeasure hide" id="maskMeasure" width="0" height="0">
+      <div id="selectedRange" class="selectedRange"></div>
+    </div>
+  </div>
+    <div class="displaySec">
+      <div class="stage" id="stage">
+        <div class="dragDropArea" id="dragDropArea">
+          <input type="file" id="readImageFile" class="readImageFile">
+        </div>
+      </div>
+
+      <!--zoom機能とクロスドメインの画像を取得している機能は保留
+      <div class="underStageArea">
+        <div class="urlSearchArea">
+          <input type="text" class="urlSearchText" id="urlSearchText">
+          <div class="urlSearchBtn" id="urlSearchBtn">GO</div>
+        </div>
+        <div class="zoomArea">
+          <p>zoom</p>
+          <ul class="zoomIcons">
+            <li id="zoomExpand"><img src=""></li>
+            <li id="zoomReduce"><img src=""></li>
+          </ul>
+        </div>
+      </div>
+      -->
+
+      <aside class="adsenceArea">
+        <script type="text/javascript"><!--
+          google_ad_client = "ca-pub-2159749143724787";
+          /* pathcon_blue_middle */
+          google_ad_slot = "2262712641";
+          google_ad_width = 468;
+          google_ad_height = 60;
+          //-->
+          </script>
+          <script type="text/javascript"
+          src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+      </aside>
+    </div>
+
+    <div class="infoSecs" id="infoSecs">
+      <ul class="toggleSwitch" id="toggleSwitch">
+        <li class="current">Color</li>
+        <li>Grid</li>
+      </ul>
+      <section class="colorInfo infoSec" id="colorInfo">
+        <h1 class="hl">Current Color</h1>
+        <div class="infoContent">
+          <div class="colorInfoPanel" id="colorInfoPanel" style="background-color: #fff;"></div>
+          <p class="colorInfoHex">#<span id="colorInfoHex">ffffff</span></p>
+          <p class="colorInfoRGB">R:<span id="colorInfoR">255</span></p>
+          <p class="colorInfoRGB">G:<span id="colorInfoG">255</span></p>
+          <p class="colorInfoRGB">B:<span id="colorInfoB">255</span></p>
+        </div>
+        <div class="adLink">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- imagePick-link180 -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:180px;height:90px"
+               data-ad-client="ca-pub-2159749143724787"
+               data-ad-slot="9665104640"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </section>
+
+      <!--LocalStorage機能はとりあえず保留
+      <section class="historyInfo infoSec" id="historyInfo">
+        <h1 class="hl">History</h1>
+        <p class="hlSupple">Added by clicking on the image</p>
+        <div class="infoContent">
+          <ul class="historyList">
+            <li>
+              <div class="colorPanel" style="background-color: #fff;"></div>
+              <p class="hex" style="color: #fff;">#fff</p>
+              <p class="rgb">R:255 G:255 B:255</p>
+            </li>
+            <li>
+              <div class="colorPanel" style="background-color: #fff;"></div>
+              <p class="hex" style="color: #fff;">#fff</p>
+              <p class="rgb">R:255 G:255 B:255</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      -->
+
+      <section class="gridInfo infoSec hide" id="gridInfo">
+        <h1 class="hl">Grid</h1>
+        <div class="infoContent">
+          <div class="gridInfoPanel"></div>
+          <ul class="gridVal wh">
+            <li>W:<span class="val"><span id="gridW">0</span>px</span></li>
+            <li>H:<span class="val"><span id="gridH">0</span>px</span></li>
+          </ul>
+          <ul class="gridVal xy">
+            <li>X:<span class="val"><span id="gridX">0</span>px</span></li>
+            <li>Y:<span class="val"><span id="gridY">0</span>px</span></li>
+          </ul>
+        </div>
+        <div class="adLink">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- imagePick-link180 -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:180px;height:90px"
+               data-ad-client="ca-pub-2159749143724787"
+               data-ad-slot="9665104640"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="./js/jquery-1.10.2.min.js"></script>
+  <script src="./js/functions.js?c"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44462631-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>
