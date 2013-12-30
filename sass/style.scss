@@ -49,6 +49,10 @@ body{
   margin:5px 0 0 10px;
   color:$textColorBlue;
   float:left;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .sen{
