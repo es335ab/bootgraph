@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+  <title>PathCon | MacとWindowsのファイルパス相互変換サイト</title>
+  <meta name="keywords" content="Mac,Windows,Win,マック,ウィンドウズ,filepass,pass,ファイルパス,作業パス,パス,アドレス,変換,convert,デザイナー,エンジニア,フロントエンド,ディレクター,クライアント">
+  <meta name="description" content="PathConはMacとWindowsのファイルパスを相互変換できるサイトです。MacユーザーとWindowユーザーが一緒に作業をしている方向け。">
+  <!--[if lt IE 9]>
+  <script src="./js/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="./css/style.css?e" media="all">
+  <meta property="og:title" content="PathCon | Mac/Windows File Path Converter" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="PathConはMacとwindowのファイルパスをブラウザ上で相互変換できるサイトです" />
+  <meta property="og:url" content="http://bootgraph.com/pathcon/" />
+  <meta property="og:image" content="img/ogp.png" />
+  <meta property="og:site_name" content="PathCon | Macとwindowsのファイルパス相互変換サイト" />
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Memoru</h1>
+    <p class="description">登録なしですぐにメモれるWebメモアプリ</p>
+    <p class="creatorName">CREATED BY KENJI SUGIMOTO</p>
+    <ul class="social">
+      <li>
+<!--         <div class="fb-like" data-href="http://bootgraph.com/memoru/" data-send="false" data-layout="button_count" data-width="120" data-show-faces="true" data-font="arial"></div> -->
+      </li>
+      <li>
+        <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bootgraph.com/memoru/" data-text="登録なしですぐにメモれるWebメモアプリ" data-lang="en">Tweet</a> -->
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </li>
+      <li class="google"><!-- <div class="g-plusone" data-size="medium"></div> -->
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+      </li>
+    </ul>
+    <p class="author"><a href="http://bootgraph.com/">Bootgraph.com</a></p>
+  </header>
+
+  <div class="in">
+    <div class="settingArea">
+      <ul class="inputArea">
+        <li class="titleInput"><input type="text" placeholder="タイトル"></li>
+        <li class="textInput"><textarea placeholder="メモる"></textarea></li>
+        <li class="btnSubmit"><button id="btnSubmit">作成する</button></li>
+      </ul>
+      <!--多分ここに広告
+      <div class="ad"></div>
+      -->
+    </div>
+
+    <div class="memoDisplayArea">
+      <section>
+        <h1 class="title">名無しメモ</h1>
+        <p class="text">メモの内容メモの内容メモの内容メモの内容</p>
+        <time class="submission">[No1]2013/1/31&nbsp;12:12</time>
+        <div class="delete jsDelete">×</div>
+      </section>
+      <section>
+        <h1 class="title">名無しメモ</h1>
+        <p class="text">メモの内容メモの内容メモの内容メモの内容</p>
+        <time class="submission">[No1]2013/1/31&nbsp;12:12</time>
+        <div class="delete jsDelete">×</div>
+      </section>
+      <section>
+        <h1 class="title">名無しメモ</h1>
+        <p class="text">メモの内容メモの内容メモの内容メモの内容</p>
+        <time class="submission">[No1]2013/1/31&nbsp;12:12</time>
+        <div class="delete jsDelete">×</div>
+      </section>
+      <section>
+        <h1 class="title">名無しメモ</h1>
+        <p class="text">メモの内容メモの内容メモの内容メモの内容</p>
+        <time class="submission">[No1]2013/1/31&nbsp;12:12</time>
+        <div class="delete jsDelete">×</div>
+      </section>
+      <section>
+        <h1 class="title">名無しメモ</h1>
+        <p class="text">メモの内容メモの内容メモの内容メモの内容</p>
+        <time class="submission">[No1]2013/1/31&nbsp;12:12</time>
+        <div class="delete jsDelete">×</div>
+      </section>
+      <section>
+        <h1 class="title">名無しメモ</h1>
+        <p class="text">メモの内容メモの内容メモの内容メモの内容</p>
+        <time class="submission">[No1]2013/1/31&nbsp;12:12</time>
+        <div class="delete jsDelete">×</div>
+      </section>
+      <section>
+        <h1 class="title">名無しメモ</h1>
+        <p class="text">メモの内容メモの内容メモの内容メモの内容</p>
+        <time class="submission">[No1]2013/1/31&nbsp;12:12</time>
+        <div class="delete jsDelete">×</div>
+      </section>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44462631-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+  <script src="js/memoru.js"></script>
+</body>
+</html>
