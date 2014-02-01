@@ -1,0 +1,224 @@
+@charset "UTF-8";
+@import "./normalize.scss";
+@import "compass";
+
+/* --------------------------------------------------
+  Skins
+-------------------------------------------------- */
+/*text color*/
+$textColorBlue    : #21b7f0;
+
+/*text size*/
+$defaultFontSize  : 14px;
+$headlineFontSize : 24px;
+
+/* --------------------------------------------------
+  Mixins
+-------------------------------------------------- */
+@mixin closeText(){
+  color: $textColorBlue;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* --------------------------------------------------
+ layout style
+-------------------------------------------------- */
+
+body{
+  font-size:$defaultFontSize;
+  line-height:1.6;
+  margin:0;
+  padding:0;
+  color:#666;
+  background-color:#fff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header{
+  width:100%;
+  height:39px;
+  border-bottom:1px solid #eee;
+  background-color:#f7f8f9;
+  @include pie-clearfix;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:normal;
+  margin:5px 0 0 10px;
+  color:$textColorBlue;
+  float:left;
+}
+
+.sen{
+  font-size:$defaultFontSize;
+  margin:10px 0 0 10px;
+  float:left;
+}
+
+.social{
+  width:350px;
+  float:right;
+  list-style:none;
+  margin:10px 0 0;
+  padding:0;
+
+  li{
+    float:left;
+    width:100px;
+    margin-right:20px;
+    }
+
+  li:last-child{
+    margin-right:0;
+    margin-left:-20px;
+  }
+}
+
+.content{
+  width:780px;
+  margin:auto;
+  padding: 8px;
+  @include pie-clearfix;
+}
+
+.col{
+  width:360px;
+  float:left;
+  .hl01{
+    font-size:$headlineFontSize;
+    font-weight:normal;
+    line-height:1;
+    color:$textColorBlue;
+    float: left;
+
+    img{
+      width:120px;
+      height:64px;
+    }
+  }
+}
+
+.popupOpen {
+  float: right;
+  color: $textColorBlue;
+  margin-top: 68px;
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.pathText{
+  clear: both;
+  @include pie-clearfix;
+}
+
+.textarea{
+  font-size:14px;
+  width:338px;
+  height:200px;
+  color:#666;
+  padding:10px;
+  border:1px solid $textColorBlue;
+}
+
+.arrowArea{
+  width:60px;
+  float:left;
+}
+
+.arrow{
+  width:60px;
+  height:110px;
+  margin-top:165px;
+  background:url("../img/arw.png") no-repeat center center;
+  position:relative;
+  z-index:-1;
+}
+
+.bottomAd {
+  margin:0 auto;
+  text-align: center;
+}
+
+//モーダル
+.popupArea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+}
+.modal {
+  width: 580px;
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  z-index: 10000;
+  margin-left: -310px;
+  padding: 10px 20px 20px;
+  background-color: #fff;
+  display: none;
+  .hl01 {
+    font-size: $headlineFontSize;
+    span {
+      @include inline-block;
+    }
+  }
+  .text {
+    vertical-align: top;
+  }
+  .macIcon,
+  .windowsIcon {
+    width: 34px;
+    height: 52px;
+  }
+  .macIcon {
+    background: url(../img/mac.png) left top no-repeat;
+    @include background-size(90px auto);
+  }
+  .windowsIcon {
+    background: url(../img/win.png) left top no-repeat;
+    @include background-size(90px auto);
+  }
+  .pathList {
+    li {
+      @include pie-clearfix;
+      margin-bottom: 5px;
+      display: none;
+    }
+    .noPathList {
+      display: block;
+    }
+  }
+  .singleDelete {
+    @include closeText();
+    float: left;
+  }
+  .singlePath {
+    overflow: hidden;
+    padding: 2px 0 0 4px;
+  }
+  .popupClose {
+    @include closeText();
+    position: absolute;
+    font-size: 24px;
+    top: 10px;
+    right: 20px;
+  }
+}
+
+
+/* --------------------------------------------------
+  for extend
+-------------------------------------------------- */
+
+/* --------------------------------------------------
+  Components
+-------------------------------------------------- */
