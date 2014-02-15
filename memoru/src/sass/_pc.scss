@@ -2,11 +2,12 @@
 ---------------------------------------*/
 @import "compass";
 
-@media screen and (min-width: 549px){
+@media screen and (min-width: 569px){
   /*components*/
   .in {
     width: 830px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /*layout*/
@@ -20,6 +21,9 @@
       padding-top: 8px;
     }
   }
+  .filterArea {
+    margin-bottom: 13px;
+  }
   .filterMemo {
     float: right;
     @include pie-clearfix();
@@ -31,8 +35,8 @@
       &:after {
         content: "|";
         position: absolute;
-        top: left;
-        right: -11px;
+        top: -1px;
+        right: -13px;
         color: #556677;
       }
       &:last-child {
