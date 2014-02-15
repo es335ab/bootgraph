@@ -23,6 +23,29 @@ body {
 .header {
   background-color: #fff;
   border-bottom: solid 1px #778899;
+  padding: 4px 0 6px;
+  @include pie-clearfix();
+  .in {
+    @include pie-clearfix();
+  }
+  .logo {
+    float: left;
+    width: 98px;
+    position: relative;
+    font-size: 10px;
+    padding-top: 5px;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 98px;
+      height: 20px;
+      @include background-size(98px 20px);
+      background-image: inline-image("logo.png");
+      @include inline-block();
+    }
+  }
   .description {
     font-weight: bold;
     color: #868686;
@@ -30,6 +53,8 @@ body {
   .openMemo {
     font-size: 18px;
     color: #0099cc;
+    float: right;
+    cursor: pointer;
     .iconPlus {
       width: 18px;
       height: 18px;
@@ -41,6 +66,11 @@ body {
       font-weight: normal;
     }
   }
+}
+
+.filterMemo {
+  margin: 15px 0;
+  @include pie-clearfix();
 }
 
 .content {
@@ -65,7 +95,6 @@ body {
       font-size: 14px;
       line-height: 22px;
       margin-bottom: 10px;
-      width: 400px;
     }
     .iconDelete {
       position: absolute;

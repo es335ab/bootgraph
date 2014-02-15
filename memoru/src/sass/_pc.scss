@@ -11,30 +11,16 @@
 
   /*layout*/
   .header {
-    padding: 4px 0 6px;
-    @include pie-clearfix();
-    .logo {
-      float: left;
-      img {
-        width: 98px;
-        height: auto;
-      }
-    }
     .description {
       font-size: 12px;
       float: left;
       margin: 11px 0 0 8px;
     }
     .openMemo {
-      float: right;
-      margin-top: 8px;
+      padding-top: 8px;
     }
   }
-  .filterArea {
-    @include pie-clearfix();
-  }
   .filterMemo {
-    margin: 15px 0;
     float: right;
     @include pie-clearfix();
     li {
@@ -107,6 +93,9 @@
     left: 350px;
     li {
       width: 480px;
+      p {
+        width: 400px;
+      }
     }
   }
 }

@@ -3,5 +3,53 @@
 @import "compass";
 
 @media screen and (max-width: 548px) {
-
+  .header {
+    .in {
+      padding: 2px 10px 4px;
+    }
+    .description {
+      display: none;
+    }
+    .openMemo {
+      padding-top: 4px;
+    }
+  }
+  .filterArea {
+    padding: 0 10px;
+  }
+  .filterMemo {
+    border: solid 1px #778899;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+    display: table;
+    width: 100%;
+    li {
+      display: table-cell;
+      background-color: #f1f1f1;
+      border-right: solid 2px #778899;
+      text-align: center;
+      padding: 8px 0 6px;;
+      width: 33.3333333333333333%;
+      @include box-sizing(border-box);
+      &:first-child {
+        @include border-radius(2px 0 0 2px);
+      }
+      &:last-child {
+        border-right: none;
+        @include border-radius(0 2px 2px 0);
+      }
+      &.cur {
+        background-color: #fff;
+      }
+    }
+  }
+  .insertArea {
+    display: none;
+  }
+  .memoDisplayArea {
+    margin: 15px 10px;
+    li {
+      padding-right: 24px;
+    }
+  }
 }
