@@ -6,15 +6,15 @@ module.exports = (grunt)->
       dist:
         src: [
           'src/js/jquery.min.js',
-          'src/js/a.js',
-          'src/js/b.js'
+          'src/js/create_global-object.js',
+          'src/js/a.js'
         ]
         dest: 'public/js/memoru.js'
 
     uglify:
       dist:
-        src: 'public/js/build_test.js',
-        dest: 'public/js/build_test.min.js'
+        src: 'public/js/memoru.js',
+        dest: 'public/js/memoru.min.js'
 
     compass:
       dist:
