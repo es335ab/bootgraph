@@ -15,6 +15,8 @@
     }
   }
   .filterArea {
+    margin-top: 57px;
+    margin-bottom: 15px;
     padding: 0 10px;
   }
   .filterMemo {
@@ -48,8 +50,12 @@
   }
   .memoDisplayArea {
     margin: 15px 10px;
-    li {
-      padding-right: 24px;
+  }
+  .modal {
+    top: 42px;
+    left: 0;
+    .insertArea {
+      display: block;
     }
   }
 }

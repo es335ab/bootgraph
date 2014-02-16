@@ -57,11 +57,11 @@
 
   <div class="in content">
     <div class="insertArea">
-      <ul>
-        <li class="textInput"><textarea placeholder="メモる！"></textarea></li>
-        <li class="checkInput"><label><input type="checkbox" id="importantCheck"><b>重要</b></label></li>
-        <li class="btnSubmit"><button id="btnSubmit">メモる！</button></li>
-      </ul>
+      <textarea class="textInput" placeholder="メモる！"></textarea>
+      <div class="inputArea">
+        <div class="checkCell"><label class="checkInput"><input type="checkbox" id="importantCheck"><b>重要</b></label></div>
+        <div class="btnCell"><button class="btnSubmit" id="btnSubmit">メモる！</button></div>
+      </div>
     </div>
     <!--多分ここに広告
     <div class="ad"></div>
@@ -69,16 +69,30 @@
 
     <ul class="memoDisplayArea">
       <li>
-        <p class="text">ようこそMemoRuへ！<br>左の入力フォームに登録すると、すぐにメモれます！<br>編集したい場合はここをクリック！</p>
+        <p class="text" title="メモ編集したい場合はここをクリック！">ようこそMemoRuへ！<br>左の入力フォームに登録すると、すぐにメモれます！<br>編集したい場合はここをクリック！</p>
+        <textarea class="textCorrection">ようこそMemoRuへ！
+左の入力フォームに登録すると、すぐにメモれます！
+編集したい場合はここをクリック！
+        </textarea>
         <time>[No1]2013/1/31&nbsp;12:12</time>
         <i class="iconDelete jsDelete"></i>
       </li>
-      <li>
-        <p class="text">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。</p>
+      <li class="importantMemo">
+        <p class="text" title="メモ編集したい場合はここをクリック！">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。</p>
         <time>[No1]2013/1/31&nbsp;12:12</time>
         <i class="iconDelete jsDelete"></i>
       </li>
     </ul>
+  </div>
+
+  <div class="modal">
+    <div class="insertArea">
+      <textarea class="textInput" placeholder="メモる！"></textarea>
+      <div class="inputArea">
+        <div><label class="checkInput"><input type="checkbox" id="importantCheck"><b>重要</b></label></div>
+        <div><button class="btnSubmit" id="btnSubmit">メモる！</button></div>
+      </div>
+    </div>
   </div>
 
   <script type="text/javascript">
