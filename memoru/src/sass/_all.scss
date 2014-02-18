@@ -17,6 +17,10 @@
   display: none !important;
 }
 
+.absolute {
+  position: absolute !important;
+}
+
 /*layout*/
 body {
   background-color: #f1f1f1;
@@ -113,7 +117,7 @@ body {
   .checkInput {
     b {
       font-weight: normal;
-      margin-top: 2px;
+      margin: 2px 0 0 5px;
       @include inline-block();
     }
   }
@@ -191,9 +195,17 @@ body {
   .textInput {
     width: 100% !important;
   }
-  .checkInput,
   .btnSubmit {
     @include inline-block();
+  }
+
+  .checkInput {
+    input {
+      @include inline-block();
+    }
+    b {
+      margin-top: 0;
+    }
   }
 }
 

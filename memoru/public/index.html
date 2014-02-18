@@ -9,7 +9,7 @@
   <!--[if lt IE 9]>
   <script src="./js/html5.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="./css/style.css?b" media="all">
+  <link rel="stylesheet" href="./css/style.css?a" media="all">
   <meta property="og:title" content="" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <meta property="og:type" content="article" />
@@ -20,9 +20,9 @@
   <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="header">
     <div class="in">
-      <h1 class="logo">MemoRu</h1>
+      <a href="./"><h1 class="logo">MemoRu</h1></a>
       <p class="description">登録なしですぐにメモれるWebメモアプリ</p>
       <ul class="social">
         <li>
@@ -43,19 +43,19 @@
         </li>
       </ul>
       <!-- <p class="author"><a href="http://bootgraph.com/">Bootgraph.com</a></p> -->
-      <p class="openMemo"><i class="iconPlus"></i><b>メモる</b></p>
+      <p class="openMemo" id="modalTrigger"><i class="iconPlus"></i><b>メモる</b></p>
     </div>
   </header>
 
-  <div class="in filterArea">
+  <div class="in filterArea jsContent">
     <ul class="filterMemo"><!--ページロード時のカレントはjsで制御したい-->
-      <li class="cur">すべて</li>
-      <li>通常</li>
-      <li>重要</li>
+      <li class="jsTap cur">すべて</li>
+      <li class="jsTap">通常</li>
+      <li class="jsTap">重要</li>
     </ul>
   </div>
 
-  <div class="in content">
+  <div class="in content jsContent">
     <div class="insertArea">
       <textarea class="textInput" placeholder="メモる！"></textarea>
       <div class="inputArea">
@@ -67,10 +67,10 @@
     <div class="ad"></div>
     -->
 
-    <ul class="memoDisplayArea">
+    <ul class="memoDisplayArea jsContent">
       <li>
         <p class="text" title="メモ編集したい場合はここをクリック！">ようこそMemoRuへ！<br>左の入力フォームに登録すると、すぐにメモれます！<br>編集したい場合はここをクリック！</p>
-        <textarea class="textCorrection">ようこそMemoRuへ！
+        <textarea class="textCorrection hide">ようこそMemoRuへ！
 左の入力フォームに登録すると、すぐにメモれます！
 編集したい場合はここをクリック！
         </textarea>
@@ -79,21 +79,66 @@
       </li>
       <li class="importantMemo">
         <p class="text" title="メモ編集したい場合はここをクリック！">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。</p>
+        <textarea class="textCorrection hide">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。
+        </textarea>
+        <time>[No1]2013/1/31&nbsp;12:12</time>
+        <i class="iconDelete jsDelete"></i>
+      </li>
+      <li>
+        <p class="text" title="メモ編集したい場合はここをクリック！">ようこそMemoRuへ！<br>左の入力フォームに登録すると、すぐにメモれます！<br>編集したい場合はここをクリック！</p>
+        <textarea class="textCorrection hide">ようこそMemoRuへ！
+左の入力フォームに登録すると、すぐにメモれます！
+編集したい場合はここをクリック！
+        </textarea>
+        <time>[No1]2013/1/31&nbsp;12:12</time>
+        <i class="iconDelete jsDelete"></i>
+      </li>
+      <li class="importantMemo">
+        <p class="text" title="メモ編集したい場合はここをクリック！">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。</p>
+        <textarea class="textCorrection hide">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。
+        </textarea>
+        <time>[No1]2013/1/31&nbsp;12:12</time>
+        <i class="iconDelete jsDelete"></i>
+      </li>
+      <li>
+        <p class="text" title="メモ編集したい場合はここをクリック！">ようこそMemoRuへ！<br>左の入力フォームに登録すると、すぐにメモれます！<br>編集したい場合はここをクリック！</p>
+        <textarea class="textCorrection hide">ようこそMemoRuへ！
+左の入力フォームに登録すると、すぐにメモれます！
+編集したい場合はここをクリック！
+        </textarea>
+        <time>[No1]2013/1/31&nbsp;12:12</time>
+        <i class="iconDelete jsDelete"></i>
+      </li>
+      <li>
+        <p class="text" title="メモ編集したい場合はここをクリック！">ようこそMemoRuへ！<br>左の入力フォームに登録すると、すぐにメモれます！<br>編集したい場合はここをクリック！</p>
+        <textarea class="textCorrection hide">ようこそMemoRuへ！
+左の入力フォームに登録すると、すぐにメモれます！
+編集したい場合はここをクリック！
+        </textarea>
+        <time>[No1]2013/1/31&nbsp;12:12</time>
+        <i class="iconDelete jsDelete"></i>
+      </li>
+      <li class="importantMemo">
+        <p class="text" title="メモ編集したい場合はここをクリック！">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。</p>
+        <textarea class="textCorrection hide">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。
+        </textarea>
         <time>[No1]2013/1/31&nbsp;12:12</time>
         <i class="iconDelete jsDelete"></i>
       </li>
     </ul>
   </div>
 
-  <div class="modal">
+  <div class="modal hide" id="modal">
     <div class="insertArea">
-      <textarea class="textInput" placeholder="メモる！"></textarea>
+      <textarea class="textInput" id="modalTextarea" placeholder="メモる！"></textarea>
       <div class="inputArea">
         <div><label class="checkInput"><input type="checkbox" id="importantCheck"><b>重要</b></label></div>
         <div><button class="btnSubmit" id="btnSubmit">メモる！</button></div>
       </div>
     </div>
   </div>
+
+  <script src="./js/memoru.js?b"></script>
 
   <script type="text/javascript">
 
@@ -108,6 +153,5 @@
   })();
 
   </script>
-  <script src="js/memoru.js"></script>
 </body>
 </html>

@@ -12,6 +12,9 @@
     }
     .openMemo {
       padding-top: 4px;
+      b {
+        margin-top: 0;
+      }
     }
   }
   .filterArea {
@@ -30,17 +33,18 @@
       background-color: #f1f1f1;
       border-right: solid 2px #778899;
       text-align: center;
-      padding: 8px 0 6px;;
+      padding: 7px 0 7px;;
       width: 33.3333333333333333%;
       @include box-sizing(border-box);
       &:first-child {
-        @include border-radius(2px 0 0 2px);
+        @include border-radius(4px 0 0 4px);
       }
       &:last-child {
         border-right: none;
-        @include border-radius(0 2px 2px 0);
+        @include border-radius(0 4px 4px 0);
       }
-      &.cur {
+      &.cur,
+      &.tapped {
         background-color: #fff;
       }
     }
@@ -52,7 +56,7 @@
     margin: 15px 10px;
   }
   .modal {
-    top: 42px;
+    top: 40px;
     left: 0;
     .insertArea {
       display: block;
