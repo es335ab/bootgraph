@@ -56,10 +56,30 @@
     margin: 15px 10px;
   }
   .modal {
-    top: 40px;
+    background-color: #f1f1f1;
+    z-index: 10;
     left: 0;
-    .insertArea {
+    top: 40px;
+    padding: 10px;
+    .insertArea,
+    .textInput {
+      width: 100% !important;
       display: block;
+    }
+    .btnSubmit {
+      @include inline-block();
+    }
+
+    .checkInput {
+      input {
+        @include inline-block();
+      }
+      b {
+        margin-top: 0;
+      }
+    }
+    .pcClose {
+      display: none;
     }
   }
 }

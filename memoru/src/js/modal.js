@@ -4,7 +4,7 @@
     this.triggerId = document.getElementById('modalTrigger');
     this.modalId = document.getElementById('modal');
     this.modalTextareaId = document.getElementById('modalTextarea');
-    this.triggerText = this.triggerId.getElementsByTagName('b')[0];
+    this.pcCloseTriggerId = document.getElementById('pcModalClose');
     this.jsContentClass = document.getElementsByClassName('jsContent');
     this.headerId = document.getElementById('header');
 
@@ -21,24 +21,32 @@
       self.modalControl(this);
     },false);
 
-    this.modalTextareaId.addEventListener('change',function(){
-      this.ios7BugSupportClose();
+    this.modalTextareaId.addEventListener('change',this.ios7BugSupportClose,false);
+
+    this.pcCloseTriggerId.addEventListener('click',function(){
+      self.closeModal(self.triggerId);
     },false);
   }
 
   fn.modalControl = function(obj){
     if(obj.classList.contains('closeModal')){
-      this.modalId.classList.add('hide');
-      obj.classList.remove('closeModal');
-      this.triggerText.innerText = 'メモる';
-      this.ios7BugSupportClose();
-
+      this.closeModal(obj);
       return;
     }
+    this.openModal(obj);
+  }
 
+  fn.closeModal = function(obj){
+    this.modalId.classList.add('hide');
+    obj.classList.remove('closeModal');
+    this.triggerId.innerHTML = '<i class="iconPlus"></i><b>メモる</b>';
+    this.ios7BugSupportClose();
+  }
+
+  fn.openModal = function(obj){
     this.modalId.classList.remove('hide');
     obj.classList.add('closeModal');
-    this.triggerText.innerText = 'もどる';
+    this.triggerId.innerHTML = '<i class="iconMinus"></i><b class="close">閉じる</b>';
     this.modalTextareaId.focus();
     this.ios7BugSupportOpen();
   }
@@ -52,6 +60,7 @@
       this.modalId.classList.add('absolute');
     }
   }
+
   fn.ios7BugSupportClose = function(){
     if(MEMORUJS.uaCheck() ==='iPhone' || MEMORUJS.uaCheck() ==='iPad' || MEMORUJS.uaCheck() ==='iPod'){
       for(var i = 0,I = this.jsContentClass.length;i < I; i++){
