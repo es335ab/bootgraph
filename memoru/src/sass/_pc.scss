@@ -52,6 +52,11 @@
       }
     }
   }
+  .social {
+    &.sp {
+      display: none;
+    }
+  }
   .insertArea {
     .textInput {
       width: 278px;

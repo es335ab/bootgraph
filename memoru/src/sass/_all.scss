@@ -144,17 +144,21 @@ body {
   @include pie-clearfix();
 }
 
-.pcSocial {
+.social {
   clear: both;
   width: 320px;
   padding: 10px 0;
   @include pie-clearfix();
+  @include box-sizing(border-box);
   li {
     float: left;
     padding-right: 10px;
     &:last-child {
       padding-right: 0;
     }
+  }
+  &.sp {
+    padding: 10px;
   }
 }
 
@@ -222,4 +226,9 @@ body {
   }
 }
 
-
+#twitter-widget-1 {
+  width: 87px !important;
+}
+#___plusone_1 {
+  width: 87px !important;
+}
