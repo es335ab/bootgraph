@@ -1,0 +1,13 @@
+{
+  password : string,
+  key1 : {
+    importantFlag : boolean,
+    memoData : string,
+    date : string
+  },
+  key2 : {
+    importantFlag : boolean,
+    memoData : string,
+    date : string
+  }
+}

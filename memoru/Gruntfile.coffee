@@ -8,7 +8,8 @@ module.exports = (grunt)->
           'src/js/jquery.min.js',
           'src/js/classlist.js'
           'src/js/create_global-object.js',
-          'src/js/ua_check.js'
+          'src/js/ua_check.js',
+          'src/js/create_usr-id.js',
           'src/js/tap.js',
           'src/js/modal.js',
           'src/js/execute_method.js'
