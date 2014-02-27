@@ -1,1 +1,3 @@
-console.log('a');
+//create_global-object.js
+'use strict';
+var MEMORUJS = {};
