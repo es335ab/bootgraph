@@ -180,7 +180,7 @@ var MEMORUJS = {};
   // });
 
   $('#memoDisplayArea').on('click','li .jsDelete',function(){
-    alert($(this).parent().attr('id'));
+    deleteId = $(this).parent().attr('id');
   });
 
 
