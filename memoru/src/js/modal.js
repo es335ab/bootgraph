@@ -3,7 +3,7 @@
   MEMORUJS.modal = function(){
     this.triggerId = document.getElementById('modalTrigger');
     this.modalId = document.getElementById('modal');
-    this.modalTextareaId = document.getElementById('modalTextarea');
+    this.modalInsertMemoId = document.getElementById('modalInsertMemo');
     this.pcCloseTriggerId = document.getElementById('pcModalClose');
     this.jsContentClass = document.getElementsByClassName('jsContent');
     this.headerId = document.getElementById('header');
@@ -21,7 +21,7 @@
       self.modalControl(this);
     },false);
 
-    this.modalTextareaId.addEventListener('change',this.ios7BugSupportClose,false);
+    this.modalInsertMemoId.addEventListener('change',this.ios7BugSupportClose,false);
 
     this.pcCloseTriggerId.addEventListener('click',function(){
       self.closeModal(self.triggerId);
@@ -47,7 +47,7 @@
     this.modalId.classList.remove('hide');
     obj.classList.add('closeModal');
     this.triggerId.innerHTML = '<i class="iconMinus"></i><b class="close">閉じる</b>';
-    this.modalTextareaId.focus();
+    this.modalInsertMemoId.focus();
     this.ios7BugSupportOpen();
   }
 
