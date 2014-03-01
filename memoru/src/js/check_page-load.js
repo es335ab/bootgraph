@@ -41,7 +41,7 @@
   }
 
   if(localStorage.getItem('ip')){
-    console.log('ip is exist in LS.');
+    console.log('ip is exist in LocalStorage.');
     //idとpassがローカルストレージにセットされている場合、
     //サーバー上のjsonからmemoデータを取得して、localStorageに上書き
     var ipJson = JSON.parse(localStorage.getItem('ip'));

@@ -50,16 +50,13 @@
     }
   }
   .social {
-    margin-left: 10px;
+    padding: 0 0 10px 10px;
   }
   .insertArea {
     display: none;
   }
   .memoDisplayArea {
     margin: 15px 10px 0;
-    li:last-child {
-      margin-bottom: 0;
-    }
   }
   .modal {
     background-color: #f1f1f1;

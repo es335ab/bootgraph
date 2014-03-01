@@ -147,7 +147,6 @@ body {
 .social {
   clear: both;
   width: 320px;
-  padding: 10px 0;
   @include pie-clearfix();
   @include box-sizing(border-box);
   li {
@@ -168,7 +167,7 @@ body {
     background-color: #fff;
     border: solid 2px #e6e6e6;
     position: relative;
-    padding: 10px 24px 10px 15px;
+    padding: 10px 29px 10px 15px;
     margin-bottom: 10px;
     @include box-sizing(border-box);
     @include border-radius(4px);
@@ -196,10 +195,12 @@ body {
       position: absolute;
       top: 5px;
       right: 5px;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       @include background-size(20px 20px);
       cursor: pointer;
+      background-repeat: no-repeat;
+      background-position: top right;
     }
     time {
       font-size: 12px;
@@ -226,7 +227,7 @@ body {
   }
 }
 
-#twitter-widget-1 {
+#twitter-widget-0 {
   width: 87px !important;
 }
 #___plusone_0 {

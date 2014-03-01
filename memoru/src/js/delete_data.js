@@ -11,7 +11,6 @@
 
   $('#memoDisplayArea').on('click','li .jsDelete',function(){
     deleteId = $(this).parent().attr('id').replace('id','');
-    console.log(deleteId);
     localStorage.removeItem(deleteId);
     $(this).parent().remove();
     var keysArr = [];
@@ -26,6 +25,7 @@
       return 0;
     });
     localStorage.memoLength = Math.max.apply(null, keysArr);
+    if(localStorage.memoLength === -Infinity || localStorage.memoLength === '-Infinity' || localStorage.memoLength === 'NaN') localStorage.memoLength = 0;
   });
 
   // $.ajax({

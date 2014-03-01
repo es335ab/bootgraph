@@ -21,6 +21,14 @@
     this.insertCheckFlag = false;
     this.modalId = document.getElementById('modal');
     this.modalTriggerId = document.getElementById('modalTrigger');
+    this.headerId = document.getElementById('header');
+    this.jsContentClass = document.getElementsByClassName('jsContent');
+    this.filterParent = document.getElementById('filterTrigger');
+    this.filterChild = this.filterParent.getElementsByTagName('li');
+    this.displayMemoAllId = document.getElementById('displayMemoAll');
+    this.memoSingle = document.getElementById('memoDisplayArea').getElementsByTagName('li');
+    this.triggerId = document.getElementById('modalTrigger');
+    this.curFilter;
 
     this.insertObj = {};
     this.insertKey;
@@ -49,6 +57,8 @@
       }
 
       self.appendMemoList();
+      self.allMemoDisplay();
+      self.closeModal();
       self.inputClear();
 
       self.memoCheckFlag = false;
@@ -78,10 +88,13 @@
   }
 
   fn.insertMemoData = function(){
+    if(localStorage.memoLength === -Infinity || localStorage.memoLength === '-Infinity' || localStorage.memoLength === 'NaN') localStorage.memoLength = 0;
     this.insertKey = Number(localStorage.getItem('memoLength')) + 1;
 
     var now = new Date();
-    this.insertTime = (now.getYear() + 1900) + '/' + (now.getMonth() + 1) + '/' + (now.getDate()) + '&nbsp' + (now.getHours()) + ':' + (now.getMinutes());
+    var minutes = Number(now.getMinutes());
+    if(minutes < 10) minutes = '0' + String(minutes);
+    this.insertTime = (now.getYear() + 1900) + '/' + (now.getMonth() + 1) + '/' + (now.getDate()) + '&nbsp' + (now.getHours()) + ':' + (minutes);
     console.log(this.insertTime);
     localStorage.setItem('memoLength', this.insertKey);
 
@@ -119,6 +132,30 @@
     memoDisplayArea.insertBefore(appendMemoList,memoDisplayArea.firstChild);
   }
 
+  fn.allMemoDisplay = function(){
+    for(var i = 0,I = this.memoSingle.length; i < I; i++){
+      this.memoSingle[i].classList.remove('hide');
+    }
+    for(var i = 0,I = this.filterChild.length; i < I; i++){
+      this.filterChild[i].classList.remove('cur');
+    }
+    this.displayMemoAllId.classList.add('cur');
+  }
+
+  fn.closeModal = function(){
+    this.modalId.classList.add('hide');
+    this.triggerId.classList.remove('closeModal');
+    this.triggerId.innerHTML = '<i class="iconPlus"></i><b>メモる</b>';
+
+
+    //iOS7バグサポート
+    for(var i = 0,I = this.jsContentClass.length; i < I; i++){
+      this.jsContentClass[i].classList.remove('hide');
+    }
+    this.headerId.classList.remove('absolute');
+    this.modalId.classList.remove('absolute');
+  }
+
   fn.inputClear = function(){
     console.log('データ登録が成功したら、ユーザが入力した値とcheckをクリアする');
     this.insertMemoId.value = '';
@@ -129,6 +166,7 @@
 
     this.insertCheckFlag = false;
   }
+
 
   //modal内のメモ登録部分にイベントをbindする
   new insertDataMethod({

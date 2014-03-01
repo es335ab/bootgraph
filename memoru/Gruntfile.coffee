@@ -5,7 +5,7 @@ module.exports = (grunt)->
     concat:
       dist:
         src: [
-          'src/js/jquery.min.js',
+          'src/js/jquery.js',
           'src/js/check_page-load.js'
           'src/js/classlist.js',
           'src/js/create_global-object.js',
