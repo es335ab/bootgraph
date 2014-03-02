@@ -88,7 +88,9 @@
   }
 
   fn.insertMemoData = function(){
-    if(localStorage.memoLength === -Infinity || localStorage.memoLength === '-Infinity' || localStorage.memoLength === 'NaN') localStorage.memoLength = 0;
+    if(!localStorage.getItem('memoLength') || localStorage.getItem('memoLength') === '-Infinity' || localStorage.getItem('memoLength') === -Infinity || localStorage.getItem('memoLength') === 'NaN'){
+      localStorage.memoLength = 0;
+    }
     this.insertKey = Number(localStorage.getItem('memoLength')) + 1;
 
     var now = new Date();
@@ -105,6 +107,7 @@
     }
 
     var insertJson = JSON.stringify(this.insertObj);
+    alert('key：' + this.insertKey + ',data：' + insertJson);
     localStorage.setItem(this.insertKey, insertJson);
 
     if(!localStorage.getItem('ip')){

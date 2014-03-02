@@ -18,7 +18,12 @@
   <meta property="og:image" content="img/ogp.png" />
   <meta property="og:site_name" content="" />
   <link rel="shortcut icon" href="favicon.ico">
-  <script>//localStorage.clear();</script>
+  <script>
+    //localStorage.clear();
+    for(var i = 0,I = localStorage.length; i < I; i++){
+      alert(localStorage.key(i) + '：' +localStorage.getItem(localStorage.key(i)));
+    }
+  </script>
 </head>
 <body>
   <header class="header" id="header">
@@ -96,7 +101,7 @@
     </div>
   </div>
 
-  <script src="./js/memoru.js?e"></script>
+  <script src="./js/memoru.js?g"></script>
 
   <div id="fb-root"></div>
   <script>(function(d, s, id) {

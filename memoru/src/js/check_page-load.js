@@ -1,7 +1,8 @@
 //check_page-load.js
 (function(){
+
   var memoDisplayArea = document.getElementById('memoDisplayArea');
-  if(!localStorage.getItem('memoLength') || localStorage.getItem('memoLength') === '-Infinity'){
+  if(!localStorage.getItem('memoLength') || localStorage.getItem('memoLength') === '-Infinity' || localStorage.getItem('memoLength') === -Infinity || localStorage.getItem('memoLength') === 'NaN'){
     localStorage.memoLength = 0;
   }
 
@@ -25,6 +26,13 @@
       if(localStorage.key(i) !== 'ip' && localStorage.key(i) !== 'memoLength'){
         var appendMemoList = {};
         var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
+        if(memoDataObj.memoData.indexOf('\n')){
+          alert('えんえぬがある');
+          var adjustMemoData = memoDataObj.memoData.replace(/\n/g,'<br>');
+        }else if(memoDataObj.memoData.indexOf('\r')){
+          alert('えんあーるがある');
+          var adjustMemoData = memoDataObj.memoData.replace(/\r/g,'<br>');
+        }
         appendMemoList = document.createElement('li');
         appendMemoList.id = 'id' + keysArr[i];
         if(memoDataObj.importantFlag === true){
@@ -32,7 +40,7 @@
         }else{
           appendMemoList.classList.remove('importantMemo');
         }
-        appendMemoList.innerHTML = '<p class="text" title="メモ編集したい場合はここをクリック！">' + memoDataObj.memoData.replace(/\n/g,'<br>') + '</p><textarea class="textCorrection hide">' + memoDataObj.memoData + '</textarea><time>[No' + keysArr[i] + ']' + memoDataObj.date + '</time><i class="iconDelete jsDelete"></i>';
+        appendMemoList.innerHTML = '<p class="text" title="メモ編集したい場合はここをクリック！">' + adjustMemoData + '</p><textarea class="textCorrection hide">' + memoDataObj.memoData + '</textarea><time>[No' + keysArr[i] + ']' + memoDataObj.date + '</time><i class="iconDelete jsDelete"></i>';
 
         //memoDisplayArea.insertBefore(appendMemoList,memoDisplayArea.firstChild);
         memoDisplayArea.appendChild(appendMemoList);
