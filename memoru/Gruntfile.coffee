@@ -6,10 +6,10 @@ module.exports = (grunt)->
       dist:
         src: [
           'src/js/jquery.js',
-          'src/js/check_page-load.js'
           'src/js/classlist.js',
           'src/js/create_global-object.js',
           'src/js/ua_check.js',
+          'src/js/check_page-load.js'
           'src/js/create_usr-id.js',
           'src/js/insert_data.js',
           'src/js/delete_data.js',

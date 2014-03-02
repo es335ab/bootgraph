@@ -97,7 +97,6 @@
     var minutes = Number(now.getMinutes());
     if(minutes < 10) minutes = '0' + String(minutes);
     this.insertTime = (now.getYear() + 1900) + '/' + (now.getMonth() + 1) + '/' + (now.getDate()) + '&nbsp' + (now.getHours()) + ':' + (minutes);
-    console.log(this.insertTime);
     localStorage.setItem('memoLength', this.insertKey);
 
     this.insertObj = {
@@ -107,7 +106,6 @@
     }
 
     var insertJson = JSON.stringify(this.insertObj);
-    alert('key：' + this.insertKey + ',data：' + insertJson);
     localStorage.setItem(this.insertKey, insertJson);
 
     if(!localStorage.getItem('ip')){

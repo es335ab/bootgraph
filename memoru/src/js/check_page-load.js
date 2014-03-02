@@ -18,21 +18,25 @@
       if( a > b ) return -1;
       return 0;
     });
+    //alert(keysArr);3,2,1 =>ok
     if(localStorage.memoLength != 0){
       localStorage.memoLength = Math.max.apply(null, keysArr);
     }
 
     for(var i = 0,I = localStorage.length; i < I; i++){
-      if(localStorage.key(i) !== 'ip' && localStorage.key(i) !== 'memoLength'){
+      if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
         var appendMemoList = {};
-        var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
-        if(memoDataObj.memoData.indexOf('\n')){
-          alert('えんえぬがある');
-          var adjustMemoData = memoDataObj.memoData.replace(/\n/g,'<br>');
-        }else if(memoDataObj.memoData.indexOf('\r')){
-          alert('えんあーるがある');
-          var adjustMemoData = memoDataObj.memoData.replace(/\r/g,'<br>');
+
+        if(MEMORUJS.uaCheck() ==='iPhone' || MEMORUJS.uaCheck() ==='iPad' || MEMORUJS.uaCheck() ==='iPod'){
+          var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i- 1]));
+        }else{
+          var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
         }
+
+        if(memoDataObj.memoData.indexOf('\n')){
+          var adjustMemoData = memoDataObj.memoData.replace(/\n/g,'<br>');
+        }
+
         appendMemoList = document.createElement('li');
         appendMemoList.id = 'id' + keysArr[i];
         if(memoDataObj.importantFlag === true){
