@@ -7,6 +7,9 @@
   }
 
   var appendMemo = function(){
+    var memoDataObj = {};
+    var dataKey = 0;
+    var dataNullFlag = false;
     var keysArr = [];
     for(var i = 0,I = localStorage.length; i < I; i++){
       if(localStorage.key(i) !== 'ip' && localStorage.key(i) !== 'memoLength'){
@@ -26,17 +29,18 @@
     for(var i = 0,I = localStorage.length; i < I; i++){
       if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
         var appendMemoList = {};
-        if(localStorage.length){
-          alert('localStorageのrow数：'+localStorage.length);
-        }
+        // if(localStorage.length){
+        //   alert('localStorageのrow数：'+localStorage.length);
+        // }
 
         var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
+        var dataKey = keysArr[i];
 
-        if(MEMORUJS.uaCheck() ==='iPhone' || MEMORUJS.uaCheck() ==='iPad' || MEMORUJS.uaCheck() ==='iPod'){
-          if(localStorage.length > 3){
-            var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i- 1]));
-          }
-        }else{
+        if(memoDataObj === null){
+          alert(localStorage.getItem(keysArr[0]));
+          memoDataObj = JSON.parse(localStorage.getItem(keysArr[0]));
+          dataKey = keysArr[0];
+          dataNullFlag = true;
         }
 
         if(memoDataObj.memoData.indexOf('\n')){
@@ -44,16 +48,20 @@
         }
 
         appendMemoList = document.createElement('li');
-        appendMemoList.id = 'id' + keysArr[i];
+        appendMemoList.id = 'id' + dataKey;
         if(memoDataObj.importantFlag === true){
           appendMemoList.classList.add('importantMemo');
         }else{
           appendMemoList.classList.remove('importantMemo');
         }
-        appendMemoList.innerHTML = '<p class="text" title="メモ編集したい場合はここをクリック！">' + adjustMemoData + '</p><textarea class="textCorrection hide">' + memoDataObj.memoData + '</textarea><time>[No' + keysArr[i] + ']' + memoDataObj.date + '</time><i class="iconDelete jsDelete"></i>';
+        appendMemoList.innerHTML = '<p class="text" title="メモ編集したい場合はここをクリック！">' + adjustMemoData + '</p><textarea class="textCorrection hide">' + memoDataObj.memoData + '</textarea><time>[No' + dataKey + ']' + memoDataObj.date + '</time><i class="iconDelete jsDelete"></i>';
 
-        //memoDisplayArea.insertBefore(appendMemoList,memoDisplayArea.firstChild);
-        memoDisplayArea.appendChild(appendMemoList);
+        if(dataNullFlag === true){
+          memoDisplayArea.insertBefore(appendMemoList,memoDisplayArea.firstChild);
+          dataNullFlag = false;
+        }else{
+          memoDisplayArea.appendChild(appendMemoList);
+        }
       }
     }
   }
