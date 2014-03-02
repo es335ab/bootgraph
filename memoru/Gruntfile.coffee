@@ -5,15 +5,17 @@ module.exports = (grunt)->
     concat:
       dist:
         src: [
-          'src/js/jquery-1.10.2.min.js',
+          'src/js/jquery.js',
           'src/js/check_page-load.js'
           'src/js/classlist.js',
           'src/js/create_global-object.js',
           'src/js/ua_check.js',
           'src/js/create_usr-id.js',
+          'src/js/insert_data.js',
           'src/js/delete_data.js',
-          'src/js/tap.js',
+          'src/js/filter_memo.js',
           'src/js/modal.js',
+          'src/js/tap.js',
           'src/js/execute_method.js'
         ]
         dest: 'public/js/memoru.js'

@@ -3,8 +3,9 @@
   MEMORUJS.modal = function(){
     this.triggerId = document.getElementById('modalTrigger');
     this.modalId = document.getElementById('modal');
-    this.modalTextareaId = document.getElementById('modalTextarea');
+    this.modalInsertMemoId = document.getElementById('modalInsertMemo');
     this.pcCloseTriggerId = document.getElementById('pcModalClose');
+    this.modalBtnSubmit = document.getElementById('modalBtnSubmit');
     this.jsContentClass = document.getElementsByClassName('jsContent');
     this.headerId = document.getElementById('header');
 
@@ -20,8 +21,6 @@
     this.triggerId.addEventListener('click',function(){
       self.modalControl(this);
     },false);
-
-    this.modalTextareaId.addEventListener('change',this.ios7BugSupportClose,false);
 
     this.pcCloseTriggerId.addEventListener('click',function(){
       self.closeModal(self.triggerId);
@@ -47,13 +46,13 @@
     this.modalId.classList.remove('hide');
     obj.classList.add('closeModal');
     this.triggerId.innerHTML = '<i class="iconMinus"></i><b class="close">閉じる</b>';
-    this.modalTextareaId.focus();
+    this.modalInsertMemoId.focus();
     this.ios7BugSupportOpen();
   }
 
   fn.ios7BugSupportOpen = function(){
     if(MEMORUJS.uaCheck() ==='iPhone' || MEMORUJS.uaCheck() ==='iPad' || MEMORUJS.uaCheck() ==='iPod'){
-      for(var i = 0,I = this.jsContentClass.length;i < I; i++){
+      for(var i = 0,I = this.jsContentClass.length; i < I; i++){
         this.jsContentClass[i].classList.add('hide');
       }
       this.headerId.classList.add('absolute');
@@ -63,7 +62,7 @@
 
   fn.ios7BugSupportClose = function(){
     if(MEMORUJS.uaCheck() ==='iPhone' || MEMORUJS.uaCheck() ==='iPad' || MEMORUJS.uaCheck() ==='iPod'){
-      for(var i = 0,I = this.jsContentClass.length;i < I; i++){
+      for(var i = 0,I = this.jsContentClass.length; i < I; i++){
         this.jsContentClass[i].classList.remove('hide');
       }
       this.headerId.classList.remove('absolute');

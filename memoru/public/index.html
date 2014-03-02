@@ -9,7 +9,7 @@
   <!--[if lt IE 9]>
   <script src="./js/html5.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="./css/style.css?d" media="all">
+  <link rel="stylesheet" href="./css/style.css?e" media="all">
   <meta property="og:title" content="" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <meta property="og:type" content="article" />
@@ -18,6 +18,14 @@
   <meta property="og:image" content="img/ogp.png" />
   <meta property="og:site_name" content="" />
   <link rel="shortcut icon" href="favicon.ico">
+  <!--
+  <script>
+    //localStorage.clear();
+    for(var i = 0,I = localStorage.length; i < I; i++){
+      alert(localStorage.key(i) + '：' +localStorage.getItem(localStorage.key(i)));
+    }
+  </script>
+  -->
 </head>
 <body>
   <header class="header" id="header">
@@ -30,29 +38,29 @@
   </header>
 
   <div class="in filterArea jsContent">
-    <ul class="filterMemo"><!--ページロード時のカレントはjsで制御したい-->
-      <li class="jsTap cur">すべて</li>
-      <li class="jsTap">通常</li>
-      <li class="jsTap">重要</li>
+    <ul class="filterMemo" id="filterTrigger">
+      <li class="jsTap cur" id="displayMemoAll">すべて</li>
+      <li class="jsTap" id="displayMemoUsually">通常</li>
+      <li class="jsTap" id="displayMemoImportant">重要</li>
     </ul>
   </div>
 
   <div class="in content jsContent">
     <ul class="memoDisplayArea jsContent" id="memoDisplayArea">
-      <li class="importantMemo">
+      <!-- <li class="importantMemo" id="id0">
         <p class="text" title="メモ編集したい場合はここをクリック！">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。</p>
         <textarea class="textCorrection hide">hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。hogeのなにかです。
         </textarea>
-        <time>[No1]2013/1/31&nbsp;12:12</time>
+        <time>[No0]2013/1/31&nbsp;12:12</time>
         <i class="iconDelete jsDelete"></i>
-      </li>
+      </li> -->
     </ul>
 
     <div class="insertArea">
-      <textarea class="textInput" placeholder="メモる！"></textarea>
+      <textarea class="textInput" id="pcInsertMemo" placeholder="メモる！"></textarea>
       <div class="inputArea">
-        <div class="checkCell"><label class="checkInput"><input type="checkbox" id="importantCheck"><b>重要</b></label></div>
-        <div class="btnCell"><button class="btnSubmit" id="btnSubmit">メモる！</button></div>
+        <div class="checkCell"><label class="checkInput"><input type="checkbox" id="pcImportantCheck"><b>重要</b></label></div>
+        <div class="btnCell"><button class="btnSubmit" id="pcBtnSubmit">メモる！</button></div>
       </div>
     </div>
 
@@ -77,23 +85,25 @@
     <!--多分ここに広告
     <div class="ad"></div>
     -->
+    <div class="hide">
     ID：<input type="text" id="usrIdInput"><br>
     PASS：<input type="password" id="passInput">
     <p class="usrIdCreate" id="usrIdCreate">ユーザidを登録</p>
+    </div>
   </div>
 
   <div class="modal hide" id="modal">
     <div class="insertArea">
-      <textarea class="textInput" id="modalTextarea" placeholder="メモる！"></textarea>
+      <textarea class="textInput" id="modalInsertMemo" placeholder="メモる！"></textarea>
       <div class="inputArea">
-        <div><label class="checkInput"><input type="checkbox" id="importantCheck"><b>重要</b></label></div>
-        <div><button class="btnSubmit" id="btnSubmit">メモる！</button></div>
+        <div><label class="checkInput"><input type="checkbox" id="modalImportantCheck"><b>重要</b></label></div>
+        <div><button class="btnSubmit" id="modalBtnSubmit">メモる！</button></div>
       </div>
       <span class="pcClose" id="pcModalClose">×</span>
     </div>
   </div>
 
-  <script src="./js/memoru.js?c"></script>
+  <script src="./js/memoru.js?g"></script>
 
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
