@@ -26,11 +26,17 @@
     for(var i = 0,I = localStorage.length; i < I; i++){
       if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
         var appendMemoList = {};
+        if(localStorage.length){
+          alert('localStorageのrow数：'+localStorage.length);
+        }
+
+        var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
 
         if(MEMORUJS.uaCheck() ==='iPhone' || MEMORUJS.uaCheck() ==='iPad' || MEMORUJS.uaCheck() ==='iPod'){
-          var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i- 1]));
+          if(localStorage.length > 3){
+            var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i- 1]));
+          }
         }else{
-          var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
         }
 
         if(memoDataObj.memoData.indexOf('\n')){
