@@ -29,15 +29,10 @@
     for(var i = 0,I = localStorage.length; i < I; i++){
       if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
         var appendMemoList = {};
-        // if(localStorage.length){
-        //   alert('localStorageのrow数：'+localStorage.length);
-        // }
-
         var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
         var dataKey = keysArr[i];
 
         if(memoDataObj === null){
-          alert(localStorage.getItem(keysArr[0]));
           memoDataObj = JSON.parse(localStorage.getItem(keysArr[0]));
           dataKey = keysArr[0];
           dataNullFlag = true;
