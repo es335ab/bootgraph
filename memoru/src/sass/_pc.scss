@@ -22,6 +22,9 @@
     }
     .openMemo {
       padding-top: 8px;
+      [class*=icon] {
+        margin-top: -4px;
+      }
     }
   }
   .filterArea {
