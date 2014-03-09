@@ -4,6 +4,13 @@
   var memoDisplayArea = document.getElementById('memoDisplayArea');
   if(!localStorage.getItem('memoLength') || localStorage.getItem('memoLength') === '-Infinity' || localStorage.getItem('memoLength') === -Infinity || localStorage.getItem('memoLength') === 'NaN'){
     localStorage.memoLength = 0;
+    var insertObj = {
+      importantFlag : true,
+      memoData : "ようこそ【MemoRu】へ！\n[+メモる]でメモを作成してみましょう。\n*このサービスではあなたのローカル環境にデータを保存していますので、あなた以外の方が見ることはできません。",
+      date : "2014/3/2&nbsp00:00"
+    }
+    insertObj = JSON.stringify(insertObj);
+    localStorage.setItem(0, insertObj);
   }
 
   var appendMemo = function(){
