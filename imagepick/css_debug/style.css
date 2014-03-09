@@ -648,9 +648,7 @@ a, a:hover, a:visited {
 .adsenceArea {
   text-align: center;
   margin: 10px auto;
-  width: 642px;
-  border-radius: 4px;
-  background-color: #fff;
+  width: 100%;
   padding-top: 12px;
   padding-bottom: 6px;
 }
