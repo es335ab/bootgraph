@@ -48,6 +48,7 @@ var MEMORUJS = {};
     var dataKey = 0;
     var dataNullFlag = false;
     var keysArr = [];
+    var memoLengthFlag = false;
     for(var i = 0,I = localStorage.length; i < I; i++){
       if(localStorage.key(i) !== 'ip' && localStorage.key(i) !== 'memoLength'){
         keysArr.push(Number(localStorage.key(i)));
@@ -58,23 +59,24 @@ var MEMORUJS = {};
       if( a > b ) return -1;
       return 0;
     });
-    //alert(keysArr);
+    //alert(keysArr);8,7,6,3,1
     if(localStorage.memoLength != 0){
       localStorage.memoLength = Math.max.apply(null, keysArr);
     }
 
-    for(var i = 0,I = localStorage.length; i < I; i++){
-      if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
+    for(var i = 0,I = keysArr.length; i < I; i++){
+      //if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
         var appendMemoList = {};
         var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
-        var dataKey = keysArr[i];
-        alert(memoDataObj);
+        var dataKey = keysArr[i];alert(i + '[：]' + dataKey);
 
         if(memoDataObj === null){
-          memoDataObj = JSON.parse(localStorage.getItem(keysArr[0]));
-          dataKey = keysArr[0];
+          memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
+          dataKey = keysArr[i];
           dataNullFlag = true;
         }
+
+        //alert(JSON.stringify(memoDataObj));
 
         if(memoDataObj.memoData.indexOf('\n')){
           var adjustMemoData = memoDataObj.memoData.replace(/\n/g,'<br>');
@@ -95,7 +97,7 @@ var MEMORUJS = {};
         }else{
           memoDisplayArea.appendChild(appendMemoList);
         }
-      }
+      //}
     }
   }
 
