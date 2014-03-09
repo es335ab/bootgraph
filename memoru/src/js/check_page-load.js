@@ -38,7 +38,7 @@
       //if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
         var appendMemoList = {};
         var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
-        var dataKey = keysArr[i];alert(i + '[：]' + dataKey);
+        var dataKey = keysArr[i];
 
         if(memoDataObj === null){
           memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
