@@ -28,7 +28,7 @@
       if( a > b ) return -1;
       return 0;
     });
-    //alert(keysArr);3,2,1 =>ok
+    //alert(keysArr);
     if(localStorage.memoLength != 0){
       localStorage.memoLength = Math.max.apply(null, keysArr);
     }
@@ -38,6 +38,7 @@
         var appendMemoList = {};
         var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
         var dataKey = keysArr[i];
+        alert(memoDataObj);
 
         if(memoDataObj === null){
           memoDataObj = JSON.parse(localStorage.getItem(keysArr[0]));
