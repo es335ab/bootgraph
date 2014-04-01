@@ -13,6 +13,7 @@ module.exports = (grunt)->
           'src/js/create_usr-id.js',
           'src/js/insert_data.js',
           'src/js/delete_data.js',
+          'src/js/change_data.js',
           'src/js/filter_memo.js',
           'src/js/modal.js',
           'src/js/tap.js',

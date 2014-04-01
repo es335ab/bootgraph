@@ -121,14 +121,16 @@
     var memoDisplayArea = document.getElementById('memoDisplayArea');
     var memoDataObj = JSON.parse(localStorage.getItem(this.insertKey));
     var appendMemoList = appendMemoList = document.createElement('li');
+    var checkedString = '';
     appendMemoList.id = 'id' + this.insertKey;
     console.log(memoDataObj.importantFlag);
     if(memoDataObj.importantFlag === true){
       appendMemoList.classList.add('importantMemo');
+      checkedString = 'checked';
     }else{
       appendMemoList.classList.remove('importantMemo');
     }
-    appendMemoList.innerHTML = '<p class="text" title="メモ編集したい場合はここをクリック！">' + memoDataObj.memoData.replace(/\n/g,'<br>') + '</p><textarea class="textCorrection hide">' + memoDataObj.memoData + '</textarea><time>[No' + this.insertKey + ']' + memoDataObj.date + '</time><i class="iconDelete jsDelete"></i>';
+    appendMemoList.innerHTML = '<p class="textMemo" title="メモ編集したい場合はここをクリック！">' + memoDataObj.memoData.replace(/\n/g,'<br>') + '</p><div class="correctionArea hide"><textarea class="textCorrection">' + memoDataObj.memoData + '</textarea><div class="inputArea"><div class="checkCell"><label class="checkInput"><input type="checkbox" ' + checkedString + '><b>重要</b></label></div><div class="btnCell"><button class="btnSubmit">メモり直す！</button></div></div></div><time>[No' + this.insertKey + ']' + memoDataObj.date + '</time><i class="iconDelete jsDelete"></i>';
 
     memoDisplayArea.insertBefore(appendMemoList,memoDisplayArea.firstChild);
   }

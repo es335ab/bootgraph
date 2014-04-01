@@ -172,7 +172,7 @@ body {
     &.importantMemo {
       border-color: #99aabb;
     }
-    .text {
+    .textMemo {
       color: #334455;
       font-size: 14px;
       line-height: 22px;
@@ -203,6 +203,39 @@ body {
     time {
       font-size: 12px;
       color: #999;
+    }
+    .inputArea {
+      display: table;
+      width: 100%;
+      margin-bottom: 15px;
+      > div {
+        display: table-cell;
+        width: 50%;
+      }
+      .checkCell {
+        text-align: left;
+      }
+      .btnCell {
+        text-align: right;
+      }
+    }
+    .checkInput,
+    .btnSubmit {
+      @include inline-block();
+    }
+    .checkInput {
+      b {
+        font-weight: normal;
+        margin: 2px 0 0 5px;
+        @include inline-block();
+      }
+    }
+    .btnSubmit {
+      padding: 8px 20px 6px;
+      color: #fff;
+      background-color: #3e9acc;
+      @include border-radius(4px);
+      border: none;
     }
   }
 }
