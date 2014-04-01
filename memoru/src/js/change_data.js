@@ -86,6 +86,9 @@
       changeIdObj.classList.remove('importantMemo');
     }
 
+    if(changeMemoContent.indexOf('\n')){
+      changeMemoContent = changeMemoContent.replace(/\n/g,'<br>');
+    }
     textMemo.innerHTML = changeMemoContent;
 
     textMemo.classList.remove('hide');
