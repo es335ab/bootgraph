@@ -59,13 +59,11 @@ var MEMORUJS = {};
       if( a > b ) return -1;
       return 0;
     });
-    //alert(keysArr);8,7,6,3,1
     if(localStorage.memoLength != 0){
       localStorage.memoLength = Math.max.apply(null, keysArr);
     }
 
     for(var i = 0,I = keysArr.length; i < I; i++){
-      //if(localStorage.key(i) != 'ip' && localStorage.key(i) != 'memoLength'){
         var appendMemoList = {};
         var memoDataObj = JSON.parse(localStorage.getItem(keysArr[i]));
         var dataKey = keysArr[i];
@@ -490,6 +488,7 @@ var MEMORUJS = {};
   var changeImportantFlag = false;
   var importantCheckDom;
   var timeString;
+  var deleteDom;
   var changeDataObj = {};
   var changeDataJson;
   var changeMemoContent;
@@ -508,6 +507,7 @@ var MEMORUJS = {};
     textCorrection = changeIdObj.getElementsByClassName('textCorrection')[0];
     importantCheckDom = changeIdObj.getElementsByTagName('input')[0];
     timeString = changeIdObj.getElementsByTagName('time')[0].innerHTML;
+    deleteDom = changeIdObj.getElementsByClassName('jsDelete')[0];
 
     return;
   }
@@ -541,6 +541,7 @@ var MEMORUJS = {};
 
     textMemo.classList.add('hide');
     correctionArea.classList.remove('hide');
+    deleteDom.classList.add('hide');
     textCorrection.focus();
   });
 
@@ -574,6 +575,7 @@ var MEMORUJS = {};
 
     textMemo.classList.remove('hide');
     correctionArea.classList.add('hide');
+    deleteDom.classList.remove('hide');
 
     if(!localStorage.getItem('ip')){
       return;

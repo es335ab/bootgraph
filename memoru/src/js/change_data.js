@@ -9,6 +9,7 @@
   var changeImportantFlag = false;
   var importantCheckDom;
   var timeString;
+  var deleteDom;
   var changeDataObj = {};
   var changeDataJson;
   var changeMemoContent;
@@ -27,6 +28,7 @@
     textCorrection = changeIdObj.getElementsByClassName('textCorrection')[0];
     importantCheckDom = changeIdObj.getElementsByTagName('input')[0];
     timeString = changeIdObj.getElementsByTagName('time')[0].innerHTML;
+    deleteDom = changeIdObj.getElementsByClassName('jsDelete')[0];
 
     return;
   }
@@ -60,6 +62,7 @@
 
     textMemo.classList.add('hide');
     correctionArea.classList.remove('hide');
+    deleteDom.classList.add('hide');
     textCorrection.focus();
   });
 
@@ -93,6 +96,7 @@
 
     textMemo.classList.remove('hide');
     correctionArea.classList.add('hide');
+    deleteDom.classList.remove('hide');
 
     if(!localStorage.getItem('ip')){
       return;
